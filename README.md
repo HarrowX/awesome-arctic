@@ -20,10 +20,17 @@ composer install --ignore-deps
 ./vendor/bin/sail up -d
 ```
 
-Сайт будет доступен http://localhost
-Вместо php писать ./vendor/bin/sail (php)
+### 3. Запуск миграций с сидерами
+
+```bash
+./vendor/bin/sail artisan migrate --seed
+```
+
 
 ## Основные маршруты
 
+Основаня страница:
+- http://localhost
+
 Админ-панель:
-- http://localhost/admin
+- http://localhost/admin (email: admin@admin.ru, password: admin)
