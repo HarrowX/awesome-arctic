@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\MoonShine\Layouts;
 
 use MoonShine\ColorManager\ColorManager;
-use MoonShine\ColorManager\Palettes\PurplePalette;
+use MoonShine\ColorManager\Palettes\WinterPalette;
 use MoonShine\Contracts\ColorManager\ColorManagerContract;
 use MoonShine\Contracts\ColorManager\PaletteContract;
 use MoonShine\Laravel\Layouts\AppLayout;
@@ -15,7 +15,7 @@ final class TutorLayout extends AppLayout
     /**
      * @var null|class-string<PaletteContract>
      */
-    protected ?string $palette = PurplePalette::class;
+    protected ?string $palette = WinterPalette::class;
 
     protected function assets(): array
     {
