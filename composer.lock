@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a10cb61214261c13d9841f79366ccfac",
+    "content-hash": "a0c10db12a0a831658df4385abfcdf61",
     "packages": [
         {
             "name": "brick/math",
@@ -2483,6 +2483,66 @@
                 }
             ],
             "time": "2026-09-30T12:34:35+00:00"
+        },
+        {
+            "name": "moonshine/multi-panels",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/moonshine-software/multi-panels.git",
+                "reference": "34bb26bb436e66b5e65565c3faf92228110878f9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/moonshine-software/multi-panels/zipball/34bb26bb436e66b5e65565c3faf92228110878f9",
+                "reference": "34bb26bb436e66b5e65565c3faf92228110878f9",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": "^8.2"
+            },
+            "conflict": {
+                "moonshine/moonshine": "<4.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "MoonShine\\MultiPanels\\Providers\\MultiPanelServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MoonShine\\MultiPanels\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Danil Shutsky",
+                    "email": "thecutcode@gmail.com",
+                    "homepage": "https://cutcode.dev"
+                }
+            ],
+            "description": "Multi panels for MoonShine",
+            "homepage": "https://getmoonshine.app",
+            "keywords": [
+                "moonshine",
+                "multi-panels",
+                "multi-tenant",
+                "tenancy"
+            ],
+            "support": {
+                "issues": "https://github.com/moonshine-software/multi-panels/issues",
+                "source": "https://github.com/moonshine-software/multi-panels"
+            },
+            "time": "2026-01-08T13:54:58+00:00"
         },
         {
             "name": "nesbot/carbon",

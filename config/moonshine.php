@@ -39,7 +39,7 @@ return [
     'use_migrations' => true,
     'use_notifications' => true,
     'use_database_notifications' => true,
-    'use_routes' => true,
+    'use_routes' => false,
     'use_profile' => true,
 
     // Routing
@@ -63,6 +63,7 @@ return [
         VerifyCsrfToken::class,
         SubstituteBindings::class,
         ChangeLocale::class,
+        \MoonShine\MultiPanels\Http\Middleware\MultiPanelMiddleware::class,
     ],
 
     // Storage
@@ -110,5 +111,15 @@ return [
     'locale_key' => ChangeLocale::KEY,
     'locales' => [
         // en
+    ],
+
+    'panels' => [
+        'admin' => [
+            'prefix' => 'admin',
+            'middleware' => [
+                'moonshine',
+                \MoonShine\MultiPanels\Http\Middleware\MultiPanelMiddleware::class,
+            ],
+        ],
     ],
 ];

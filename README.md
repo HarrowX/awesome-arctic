@@ -22,3 +22,8 @@ composer install --ignore-deps
 
 Сайт будет доступен http://localhost
 Вместо php писать ./vendor/bin/sail (php)
+
+## Основные маршруты
+
+Админ-панель:
+- http://localhost/admin
