@@ -10,7 +10,11 @@ use App\MoonShine\Layouts\JuryLayout;
 use App\MoonShine\Layouts\MoonShineLayout;
 use App\MoonShine\Layouts\ParticipantLayout;
 use App\MoonShine\Layouts\TutorLayout;
+use App\MoonShine\Pages\AdminDashboard;
 use App\MoonShine\Pages\Dashboard;
+use App\MoonShine\Pages\JuryDashboard;
+use App\MoonShine\Pages\ParticipantDashboard;
+use App\MoonShine\Pages\TutorDashboard;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull;
@@ -19,7 +23,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use MoonShine\ColorManager\Palettes\PurplePalette;
+use MoonShine\ColorManager\Palettes\WinterPalette;
 use MoonShine\Crud\Forms\FiltersForm;
 use MoonShine\Crud\Forms\LoginForm;
 use MoonShine\Laravel\Exceptions\MoonShineNotFoundException;
@@ -100,19 +104,19 @@ return [
 
     // Layout, palette, pages, forms
     //    'layout' => MoonShineLayout::class,
-    'palette' => PurplePalette::class,
+    'palette' => WinterPalette::class,
 
     'forms' => [
         'login' => LoginForm::class,
         'filters' => FiltersForm::class,
     ],
 
-//    'pages' => [
-//        'dashboard' => Dashboard::class,
-//        'profile' => ProfilePage::class,
-//        'login' => LoginPage::class,
-//        'error' => ErrorPage::class,
-//    ],
+    //    'pages' => [
+    //        'dashboard' => Dashboard::class,
+    //        'profile' => ProfilePage::class,
+    //        'login' => LoginPage::class,
+    //        'error' => ErrorPage::class,
+    //    ],
 
     // Localizations
     'locale' => 'en',
@@ -138,8 +142,8 @@ return [
             ],
 
             'pages' => [
-                'dashboard' => \App\MoonShine\Pages\AdminDashboard::class,
-                'profile' => ProfilePage::class, //TODO ПОМЕНЯТЬ ВСЕ
+                'dashboard' => AdminDashboard::class,
+                'profile' => ProfilePage::class, // TODO ПОМЕНЯТЬ ВСЕ
                 'login' => LoginPage::class,
                 'error' => ErrorPage::class,
             ],
@@ -162,8 +166,8 @@ return [
             'layout' => ParticipantLayout::class,
 
             'pages' => [
-                'dashboard' => \App\MoonShine\Pages\ParticipantDashboard::class,
-                'profile' => ProfilePage::class, //TODO ПОМЕНЯТЬ ВСЕ
+                'dashboard' => ParticipantDashboard::class,
+                'profile' => ProfilePage::class, // TODO ПОМЕНЯТЬ ВСЕ
                 'login' => LoginPage::class,
                 'error' => ErrorPage::class,
             ],
@@ -197,8 +201,8 @@ return [
             'layout' => TutorLayout::class,
 
             'pages' => [
-                'dashboard' => \App\MoonShine\Pages\TutorDashboard::class,
-                'profile' => ProfilePage::class, //TODO ПОМЕНЯТЬ ВСЕ
+                'dashboard' => TutorDashboard::class,
+                'profile' => ProfilePage::class, // TODO ПОМЕНЯТЬ ВСЕ
                 'login' => LoginPage::class,
                 'error' => ErrorPage::class,
             ],
@@ -232,8 +236,8 @@ return [
             'layout' => JuryLayout::class,
 
             'pages' => [
-                'dashboard' => \App\MoonShine\Pages\JuryDashboard::class,
-                'profile' => ProfilePage::class, //TODO ПОМЕНЯТЬ ВСЕ
+                'dashboard' => JuryDashboard::class,
+                'profile' => ProfilePage::class, // TODO ПОМЕНЯТЬ ВСЕ
                 'login' => LoginPage::class,
                 'error' => ErrorPage::class,
             ],
