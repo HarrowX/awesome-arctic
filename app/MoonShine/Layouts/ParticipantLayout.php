@@ -10,7 +10,7 @@ use MoonShine\Contracts\ColorManager\ColorManagerContract;
 use MoonShine\Contracts\ColorManager\PaletteContract;
 use MoonShine\Laravel\Layouts\AppLayout;
 
-final class MoonShineLayout extends AppLayout
+final class ParticipantLayout extends AppLayout
 {
     /**
      * @var null|class-string<PaletteContract>
@@ -27,7 +27,6 @@ final class MoonShineLayout extends AppLayout
     protected function menu(): array
     {
         return [
-            ...parent::menu(),
         ];
     }
 

@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Jury;
+use App\Models\Participant;
+use App\Models\Tutor;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -22,5 +25,22 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('admin'),
         ]);
 
+        Jury::create([
+            'name' => 'jury',
+            'email' => 'jury@admin.ru',
+            'password' => Hash::make('admin'),
+        ]);
+
+        Participant::create([
+            'name' => 'participant',
+            'email' => 'participant@admin.ru',
+            'password' => Hash::make('admin'),
+        ]);
+
+        Tutor::create([
+            'name' => 'tutor',
+            'email' => 'tutor@admin.ru',
+            'password' => Hash::make('admin'),
+        ]);
     }
 }

@@ -2,7 +2,15 @@
 
 declare(strict_types=1);
 
+use App\Models\Jury;
+use App\Models\Participant;
+use App\Models\Tutor;
+use App\MoonShine\Layouts\AdminLayout;
+use App\MoonShine\Layouts\JuryLayout;
 use App\MoonShine\Layouts\MoonShineLayout;
+use App\MoonShine\Layouts\ParticipantLayout;
+use App\MoonShine\Layouts\TutorLayout;
+use App\MoonShine\Pages\Dashboard;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull;
@@ -91,7 +99,7 @@ return [
     ],
 
     // Layout, palette, pages, forms
-    'layout' => MoonShineLayout::class,
+    //    'layout' => MoonShineLayout::class,
     'palette' => PurplePalette::class,
 
     'forms' => [
@@ -99,12 +107,12 @@ return [
         'filters' => FiltersForm::class,
     ],
 
-    'pages' => [
-        'dashboard' => App\MoonShine\Pages\Dashboard::class,
-        'profile' => ProfilePage::class,
-        'login' => LoginPage::class,
-        'error' => ErrorPage::class,
-    ],
+//    'pages' => [
+//        'dashboard' => Dashboard::class,
+//        'profile' => ProfilePage::class,
+//        'login' => LoginPage::class,
+//        'error' => ErrorPage::class,
+//    ],
 
     // Localizations
     'locale' => 'en',
@@ -116,9 +124,141 @@ return [
     'panels' => [
         'admin' => [
             'prefix' => 'admin',
+            'layout' => AdminLayout::class,
+
+            'auth' => [
+                'enabled' => true,
+                'guard' => 'moonshine',
+                'model' => MoonshineUser::class,
+                'middleware' => [
+                    MultiPanelMiddleware::class,
+                    Authenticate::class,
+                ],
+                'pipelines' => [],
+            ],
+
+            'pages' => [
+                'dashboard' => \App\MoonShine\Pages\AdminDashboard::class,
+                'profile' => ProfilePage::class, //TODO ПОМЕНЯТЬ ВСЕ
+                'login' => LoginPage::class,
+                'error' => ErrorPage::class,
+            ],
+
             'middleware' => [
-                'moonshine',
                 MultiPanelMiddleware::class,
+                EncryptCookies::class,
+                AddQueuedCookiesToResponse::class,
+                StartSession::class,
+                AuthenticateSession::class,
+                ShareErrorsFromSession::class,
+                VerifyCsrfToken::class,
+                SubstituteBindings::class,
+                ChangeLocale::class,
+            ],
+        ],
+
+        'participant' => [
+            'prefix' => 'participant',
+            'layout' => ParticipantLayout::class,
+
+            'pages' => [
+                'dashboard' => \App\MoonShine\Pages\ParticipantDashboard::class,
+                'profile' => ProfilePage::class, //TODO ПОМЕНЯТЬ ВСЕ
+                'login' => LoginPage::class,
+                'error' => ErrorPage::class,
+            ],
+
+            'auth' => [
+                'enabled' => true,
+                'guard' => 'moonshine-participant',
+                'model' => Participant::class,
+                'middleware' => [
+                    MultiPanelMiddleware::class,
+                    Authenticate::class,
+                ],
+                'pipelines' => [],
+            ],
+
+            'middleware' => [
+                MultiPanelMiddleware::class,
+                EncryptCookies::class,
+                AddQueuedCookiesToResponse::class,
+                StartSession::class,
+                AuthenticateSession::class,
+                ShareErrorsFromSession::class,
+                VerifyCsrfToken::class,
+                SubstituteBindings::class,
+                ChangeLocale::class,
+            ],
+        ],
+
+        'tutor' => [
+            'prefix' => 'tutor',
+            'layout' => TutorLayout::class,
+
+            'pages' => [
+                'dashboard' => \App\MoonShine\Pages\TutorDashboard::class,
+                'profile' => ProfilePage::class, //TODO ПОМЕНЯТЬ ВСЕ
+                'login' => LoginPage::class,
+                'error' => ErrorPage::class,
+            ],
+
+            'auth' => [
+                'enabled' => true,
+                'guard' => 'moonshine-tutor',
+                'model' => Tutor::class,
+                'middleware' => [
+                    MultiPanelMiddleware::class,
+                    Authenticate::class,
+                ],
+                'pipelines' => [],
+            ],
+
+            'middleware' => [
+                MultiPanelMiddleware::class,
+                EncryptCookies::class,
+                AddQueuedCookiesToResponse::class,
+                StartSession::class,
+                AuthenticateSession::class,
+                ShareErrorsFromSession::class,
+                VerifyCsrfToken::class,
+                SubstituteBindings::class,
+                ChangeLocale::class,
+            ],
+        ],
+
+        'jury' => [
+            'prefix' => 'jury',
+            'layout' => JuryLayout::class,
+
+            'pages' => [
+                'dashboard' => \App\MoonShine\Pages\JuryDashboard::class,
+                'profile' => ProfilePage::class, //TODO ПОМЕНЯТЬ ВСЕ
+                'login' => LoginPage::class,
+                'error' => ErrorPage::class,
+            ],
+
+            'auth' => [
+                'enabled' => true,
+                'guard' => 'moonshine-jury',
+                'model' => Jury::class,
+                'middleware' => [
+                    MultiPanelMiddleware::class,
+                    Authenticate::class,
+                ],
+                'pipelines' => [],
+            ],
+
+            'middleware' => [
+                MultiPanelMiddleware::class,
+                EncryptCookies::class,
+                AddQueuedCookiesToResponse::class,
+                StartSession::class,
+                AuthenticateSession::class,
+                ShareErrorsFromSession::class,
+                VerifyCsrfToken::class,
+                SubstituteBindings::class,
+                ChangeLocale::class,
             ],
         ],
     ],

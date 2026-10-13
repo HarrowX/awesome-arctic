@@ -10,6 +10,7 @@ use MoonShine\Laravel\Models\MoonshineUser;
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\MenuManager\Attributes\Group;
 use MoonShine\MenuManager\Attributes\Order;
+use MoonShine\MultiPanels\MultiPanelResource;
 use MoonShine\Support\Attributes\Icon;
 use MoonShine\Support\Enums\Action;
 use MoonShine\Support\ListOf;
@@ -20,7 +21,7 @@ use MoonShine\Support\ListOf;
 #[Icon('users')]
 #[Group('moonshine::ui.resource.system', 'users', translatable: true)]
 #[Order(0)]
-class MoonShineUserResource extends ModelResource
+class MoonShineUserResource extends MultiPanelResource
 {
     protected string $model = MoonshineUser::class;
 
