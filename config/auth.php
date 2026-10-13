@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Jury;
+use App\Models\Participant;
+use App\Models\Tutor;
 use App\Models\User;
 
 return [
@@ -42,6 +45,21 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'moonshine-jury' => [
+            'driver' => 'session',
+            'provider' => 'juries',
+        ],
+
+        'moonshine-tutor' => [
+            'driver' => 'session',
+            'provider' => 'tutors',
+        ],
+
+        'moonshine-participant' => [
+            'driver' => 'session',
+            'provider' => 'participants',
+        ],
     ],
 
     /*
@@ -67,10 +85,21 @@ return [
             'model' => env('AUTH_MODEL', User::class),
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'juries' => [
+            'driver' => 'eloquent',
+            'model' => Jury::class,
+        ],
+
+        'tutors' => [
+            'driver' => 'eloquent',
+            'model' => Tutor::class,
+        ],
+
+        'participants' => [
+            'driver' => 'eloquent',
+            'model' => Participant::class,
+        ],
+
     ],
 
     /*
