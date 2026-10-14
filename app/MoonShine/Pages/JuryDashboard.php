@@ -13,6 +13,7 @@ use MoonShine\MenuManager\Attributes\SkipMenu;
 class JuryDashboard extends Page
 {
     protected string $title = 'Панель';
+
     /**
      * @return array<string, string>
      */

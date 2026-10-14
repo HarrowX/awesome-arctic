@@ -38,8 +38,8 @@ use MoonShine\MultiPanels\Http\Middleware\MultiPanelMiddleware;
 
 return [
     'title' => env('MOONSHINE_TITLE', 'MoonShine'),
-    'logo' => '/vendor/moonshine/logo-small.svg',
-    'logo_small' => '/vendor/moonshine/logo-small.svg',
+    'logo' => '/favicon.svg',
+    'logo_small' => '/favicon.svg',
 
     'favicons' => [
         'apple-touch' => '/favicon.svg',

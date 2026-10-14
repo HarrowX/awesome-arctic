@@ -36,5 +36,4 @@ class MoonShineLayout extends AppLayout
     {
         return [];
     }
-
 }
