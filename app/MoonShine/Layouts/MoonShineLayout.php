@@ -21,4 +21,20 @@ class MoonShineLayout extends AppLayout
             ...parent::menu(),
         ];
     }
+
+    protected function getFooterCopyright(): string
+    {
+        return \sprintf(
+            <<<'HTML'
+                &copy; %d Made with ❤️ by WEBLAB
+        HTML,
+            now()->year,
+        );
+    }
+
+    protected function getFooterMenu(): array
+    {
+        return [];
+    }
+
 }

@@ -45,5 +45,7 @@ class MoonShineServiceProvider extends ServiceProvider
                 ParticipantDashboard::class,
                 TutorDashboard::class,
             ]);
+
+        $core->getConfig()->logo('/favicon.svg')->logo('/favicon.svg', small: true);
     }
 }
