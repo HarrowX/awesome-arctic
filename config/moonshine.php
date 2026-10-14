@@ -14,6 +14,7 @@ use App\MoonShine\Pages\AdminDashboard;
 use App\MoonShine\Pages\Dashboard;
 use App\MoonShine\Pages\JuryDashboard;
 use App\MoonShine\Pages\ParticipantDashboard;
+use App\MoonShine\Pages\ParticipantProfilePage;
 use App\MoonShine\Pages\TutorDashboard;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -119,11 +120,11 @@ return [
     //    ],
 
     // Localizations
-    'locale' => 'en',
-    'locale_key' => ChangeLocale::KEY,
-    'locales' => [
-        // en
-    ],
+    //    'locale' => 'ru',
+    //    'locale_key' => ChangeLocale::KEY,
+    //    'locales' => [
+    //        'ru'
+    //    ],
 
     'panels' => [
         'admin' => [
@@ -159,6 +160,7 @@ return [
                 SubstituteBindings::class,
                 ChangeLocale::class,
             ],
+            'locale' => 'ru',
         ],
 
         'participant' => [
@@ -167,8 +169,8 @@ return [
 
             'pages' => [
                 'dashboard' => ParticipantDashboard::class,
-                'profile' => ProfilePage::class, // TODO ПОМЕНЯТЬ ВСЕ
-                'login' => LoginPage::class,
+                'profile' => ParticipantProfilePage::class,
+                'login' => LoginPage::class, // TODO ПОМЕНЯТЬ ВСЕ
                 'error' => ErrorPage::class,
             ],
 
@@ -194,6 +196,7 @@ return [
                 SubstituteBindings::class,
                 ChangeLocale::class,
             ],
+            'locale' => 'ru',
         ],
 
         'tutor' => [
@@ -229,6 +232,7 @@ return [
                 SubstituteBindings::class,
                 ChangeLocale::class,
             ],
+            'locale' => 'ru',
         ],
 
         'jury' => [
@@ -264,6 +268,7 @@ return [
                 SubstituteBindings::class,
                 ChangeLocale::class,
             ],
+            'locale' => 'ru',
         ],
     ],
 ];

@@ -4,39 +4,15 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Layouts;
 
-use MoonShine\ColorManager\ColorManager;
-use MoonShine\ColorManager\Palettes\WinterPalette;
-use MoonShine\Contracts\ColorManager\ColorManagerContract;
-use MoonShine\Contracts\ColorManager\PaletteContract;
-use MoonShine\Laravel\Layouts\AppLayout;
+use App\MoonShine\Pages\ParticipantProfilePage;
+use MoonShine\MenuManager\MenuItem;
 
-final class ParticipantLayout extends AppLayout
+final class ParticipantLayout extends MoonShineLayout
 {
-    /**
-     * @var null|class-string<PaletteContract>
-     */
-    protected ?string $palette = WinterPalette::class;
-
-    protected function assets(): array
-    {
-        return [
-            ...parent::assets(),
-        ];
-    }
-
     protected function menu(): array
     {
         return [
+            MenuItem::make(app(ParticipantProfilePage::class)->getUrl(), 'Мой профиль'),
         ];
-    }
-
-    /**
-     * @param  ColorManager  $colorManager
-     */
-    protected function colors(ColorManagerContract $colorManager): void
-    {
-        parent::colors($colorManager);
-
-        // $colorManager->primary('#00000');
     }
 }

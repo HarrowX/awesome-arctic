@@ -1,0 +1,49 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\Jury;
+use App\Models\Participant;
+use App\Models\Tutor;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\Hash;
+use MoonShine\Laravel\Models\MoonshineUser;
+
+class UserSeeder extends Seeder
+{
+    use WithoutModelEvents;
+
+    /**
+     * Seed the application's database.
+     */
+    public function run(): void
+    {
+        MoonshineUser::create([
+            'name' => 'admin',
+            'email' => 'admin@admin.ru',
+            'password' => Hash::make('admin'),
+        ]);
+
+        Jury::create([
+            'name' => 'jury',
+            'email' => 'jury@admin.ru',
+            'password' => Hash::make('admin'),
+        ]);
+
+        Participant::create([
+            'name' => 'participant',
+            'surname' => 'participant',
+            'birthday' => Date::now()->subYears(15)->format('Y-m-d'),
+            'email' => 'participant@admin.ru',
+            'password' => Hash::make('admin'),
+        ]);
+
+        Tutor::create([
+            'name' => 'tutor',
+            'email' => 'tutor@admin.ru',
+            'password' => Hash::make('admin'),
+        ]);
+    }
+}

@@ -2,13 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Jury;
-use App\Models\Participant;
-use App\Models\Tutor;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
-use MoonShine\Laravel\Models\MoonshineUser;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,28 +14,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        MoonshineUser::create([
-            'name' => 'admin',
-            'email' => 'admin@admin.ru',
-            'password' => Hash::make('admin'),
-        ]);
-
-        Jury::create([
-            'name' => 'jury',
-            'email' => 'jury@admin.ru',
-            'password' => Hash::make('admin'),
-        ]);
-
-        Participant::create([
-            'name' => 'participant',
-            'email' => 'participant@admin.ru',
-            'password' => Hash::make('admin'),
-        ]);
-
-        Tutor::create([
-            'name' => 'tutor',
-            'email' => 'tutor@admin.ru',
-            'password' => Hash::make('admin'),
+        $this->call([
+            UserSeeder::class,
+            SchoolSeeder::class,
         ]);
     }
 }
