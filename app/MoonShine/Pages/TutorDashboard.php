@@ -12,6 +12,7 @@ use MoonShine\MenuManager\Attributes\SkipMenu;
 
 class TutorDashboard extends Page
 {
+    protected string $title = 'Панель';
     /**
      * @return array<string, string>
      */

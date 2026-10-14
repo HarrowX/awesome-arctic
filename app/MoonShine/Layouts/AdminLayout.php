@@ -4,40 +4,30 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Layouts;
 
-use MoonShine\ColorManager\ColorManager;
-use MoonShine\ColorManager\Palettes\WinterPalette;
-use MoonShine\Contracts\ColorManager\ColorManagerContract;
-use MoonShine\Contracts\ColorManager\PaletteContract;
-use MoonShine\Laravel\Layouts\AppLayout;
+use App\MoonShine\Resources\Participant\ParticipantResource;
+use App\MoonShine\Resources\Region\RegionResource;
+use App\MoonShine\Resources\School\SchoolResource;
+use MoonShine\Laravel\Resources\MoonShineUserResource;
+use MoonShine\Laravel\Resources\MoonShineUserRoleResource;
+use MoonShine\MenuManager\MenuGroup;
+use MoonShine\MenuManager\MenuItem;
 
-final class AdminLayout extends AppLayout
+final class AdminLayout extends MoonShineLayout
 {
-    /**
-     * @var null|class-string<PaletteContract>
-     */
-    protected ?string $palette = WinterPalette::class;
-
-    protected function assets(): array
-    {
-        return [
-            ...parent::assets(),
-        ];
-    }
-
     protected function menu(): array
     {
         return [
-            ...parent::menu(),
+            MenuGroup::make('Системные', [
+                MenuItem::make(MoonShineUserResource::class),
+                MenuItem::make(MoonShineUserRoleResource::class),
+            ]),
+
+            MenuGroup::make('Места', [
+                MenuItem::make(RegionResource::class, 'Регионы'),
+                MenuItem::make(SchoolResource::class, 'Школы'),
+            ]),
+
+            MenuItem::make(ParticipantResource::class, 'Школьники'),
         ];
-    }
-
-    /**
-     * @param  ColorManager  $colorManager
-     */
-    protected function colors(ColorManagerContract $colorManager): void
-    {
-        parent::colors($colorManager);
-
-        // $colorManager->primary('#00000');
     }
 }

@@ -11,6 +11,7 @@ use MoonShine\MenuManager\Attributes\SkipMenu;
 #[SkipMenu]
 class AdminDashboard extends Page
 {
+    protected string $title = 'Панель';
     /**
      * @return array<string, string>
      */
